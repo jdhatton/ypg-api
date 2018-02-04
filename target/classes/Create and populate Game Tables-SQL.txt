@@ -1,0 +1,146 @@
+
+
+CREATE TABLE `GAMES` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `gameTypeId` int(10) unsigned DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+CREATE TABLE `GAMETYPES` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `catId` int(10) unsigned DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+CREATE TABLE `GAMERULES` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `gameId` int(10) unsigned DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+CREATE TABLE `USERGAMES` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `userId` int(10) unsigned DEFAULT NULL,
+  `gameId` int(10) unsigned DEFAULT NULL,
+  `selectedRulesId` int(10) unsigned DEFAULT NULL,
+  `name` varchar(124) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+ALTER TABLE usergames ADD COLUMN GAMETYPEID int(10) unsigned DEFAULT NULL
+
+CREATE TABLE `SELECTEDGAMESRULES` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `userGameId` int(10) unsigned DEFAULT NULL,
+  `userId` int(10) unsigned DEFAULT NULL,
+  `ruleId` int(10) unsigned DEFAULT NULL, 
+  `status` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'NFL Football', 'NFL Football', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'NCAA M FB', 'NCAA Mens Football', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'NCAA Mens BB', 'NCAA Mens Basketball', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'PGA', 'PGA - Mens Professional Golf', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'American Idol', 'American Idol', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'X-Factor', 'X-Factor', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'The Bachelor', 'The Bachelor', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'The Bachelorette', 'The Bachelorette', 'A','2012-07-27' );
+INSERT INTO `gametypes` (catid, name,description, status,creationDate ) VALUES (1, 'Big Brother', 'Big Brother', 'A','2012-07-27' );
+
+
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm All', 'PickEm All - Pick all games each week.', 'A','2012-07-27' );
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm SuperBowl', 'PickEm - Pick SuperBowl Only.', 'A','2012-07-27' );
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm Favorite', 'PickEm - Pick only favorite teams.', 'A','2012-07-27' );
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm Records', 'PickEm - Pick all teams finishing records.', 'A','2012-07-27' );
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm Favorite Records', 'PickEm All - Pick favorite teams finishing records..', 'A','2012-07-27' );
+INSERT INTO `games` (gametypeid, name, description, status, creationDate ) VALUES (1, 'PickEm Rankings', 'PickEm - Pick rankings [COMING SOON].', 'A','2012-07-27' );
+
+
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-1', 'Each player can make [XXX] picks per week.', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-2', 'Eliminated players are eligible for second chance during first [XXX] weeks.', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-3', 'Auto picks for players who do not make picks. ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-4', 'Players can specify a favorite team. ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-5', 'Players can taunt each other. ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-6', 'Players can [XXX] ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-7', 'Player tracking available. ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-8', 'Game Tools and Analysis available to players. ', 'A','2012-07-27' );
+INSERT INTO `gamerules` (gameid, name,description, status,creationDate ) VALUES (1, 'Rule-9', 'Notification are [XXX] for all players. ', 'A','2012-07-27' );
+
+
+CREATE TABLE `POOLS` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `creatorId` int(10) unsigned DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+CREATE TABLE `POOLUSERS` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `poolId` int(10) unsigned DEFAULT NULL,
+  `userId` int(10) unsigned DEFAULT NULL,
+  `status` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+ALTER TABLE POOLUSERS ADD COLUMN USERNAME varchar(128) unsigned DEFAULT NULL
+
+CREATE TABLE `GAMEPOOLS` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `gameId` int(10) unsigned DEFAULT NULL,
+  `poolId` int(10) unsigned DEFAULT NULL,
+  `status` varchar(12) NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+
+CREATE TABLE `USERSOCIALACCTS` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `userId` int(10) unsigned DEFAULT NULL,
+  `socialAppname` varchar(128) DEFAULT NULL,
+  `username` varchar(128) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `appKey` varchar(255) NOT NULL,
+  `appOptions` varchar(255) NOT NULL,
+  `appURL` varchar(255) NOT NULL,
+  `appOther` varchar(255) NOT NULL,
+  `secure` varchar(255) NOT NULL,
+  `integrationLvl` varchar(12) NOT NULL,
+  `status` varchar(12) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+
+
+
+
+
+
+
+
+
+
+

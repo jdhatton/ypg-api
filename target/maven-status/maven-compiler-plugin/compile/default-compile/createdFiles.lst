@@ -1,0 +1,13 @@
+orig/com/ypg/models/pools/Pool.class
+orig/com/ypg/models/pools/GamePool.class
+orig/com/ypg/models/rules/GameRule.class
+hello/HelloController.class
+orig/com/ypg/models/rules/SelectedGameRule.class
+orig/com/ypg/models/GameType.class
+orig/com/ypg/models/Game.class
+orig/com/ypg/api/utils/DateUtil.class
+orig/com/ypg/models/PlayableGame.class
+hello/Application.class
+orig/com/ypg/models/UserGame.class
+orig/com/ypg/models/User.class
+orig/com/ypg/models/pools/PoolUser.class

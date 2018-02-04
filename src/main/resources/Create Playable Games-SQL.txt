@@ -1,0 +1,94 @@
+
+CREATE TABLE `PlayableGames_NFL` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `startTimeForPicks` datetime NOT NULL,
+  `endTimeForPicks` datetime NOT NULL, 
+  `homeTeam` varchar(128) DEFAULT NULL,
+  `visitorTeam` varchar(128) DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `gameInfoID` int(10) unsigned NULL,
+  `status` varchar(12) NOT NULL,
+  `gameTime` datetime NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+)
+
+
+CREATE TABLE `PicksForPlayableGames_NFL` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `playableGameID` int(10) unsigned NULL,
+  `userId` int(10) unsigned DEFAULT NULL,
+  `pick` varchar(255) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+CREATE TABLE `GameInfo` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
+  `playableGameID` int(10) unsigned NULL,
+  `info` varchar(510) NOT NULL,
+  `stats` varchar(255) NOT NULL,
+  `etc` varchar(255) NOT NULL,
+  `xml` varchar(510) NOT NULL,
+  `other` varchar(255) NOT NULL,
+  `more` varchar(255) NOT NULL,
+  `creationDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) 
+
+
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Miami Dolphins','Buffalo Bills','Testing 001', 0,'TEST', now(),now() );
+
+
+
+INSERT INTO PLAYABLEGAMES_NFL 
+( STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Tampa Bay Buccaneers','Carolina Panthers','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+( STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'NY Jets','St Louis Rams','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Cincinati Bengals','KC Chiefs','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Clevland Browns','Dallas Cowboys','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Jaxville Jaguars','Houston Texans','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Philidelphia Eagles','Washington Redskins','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Arizona Cardinals','Atlanta Falcons','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'New Orleans Saints','Oakland Raiders','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'San Diego Chargers','Denver Broncos','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Indy Colts','New England Patriots','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Baltimore Ravens','Pittsburg Steelers','Testing 001', 0,'TEST', now(),now() );
+
+INSERT INTO PLAYABLEGAMES_NFL 
+(  STARTTIMEFORPICKS , ENDTIMEFORPICKS , HOMETEAM , VISITORTEAM , DESCRIPTION , GAMEINFOID , STATUS , GAMETIME , CREATIONDATE ) 
+VALUES( now(),now(),'Chicago Bears','San Fransisco 49s','Testing 001', 0,'TEST', now(),now() );
